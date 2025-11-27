@@ -100,8 +100,8 @@ final class NettyChannel extends AbstractChannel {
     }
 
     /**
-     * Get dubbo channel by netty channel through channel cache.
-     * Put netty channel into it if dubbo channel don't exist in the cache.
+     * 通过通道缓存逐个 netty 通道获取 dubbo 通道。
+     * 如果缓存中不存在 dubbo 通道，则将 netty 通道放入其中。
      *
      * @param ch      netty channel
      * @param url     dubbo url

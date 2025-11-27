@@ -25,6 +25,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.function.Consumer;
 
+/**
+ * 多路复用协议连接管理器
+ */
 public class MultiplexProtocolConnectionManager implements ConnectionManager {
     public static final String NAME = "multiple";
 

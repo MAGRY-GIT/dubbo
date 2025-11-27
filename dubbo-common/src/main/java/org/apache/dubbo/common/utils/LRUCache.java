@@ -22,7 +22,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.Function;
 
 /**
- * A 'least recently used' cache based on LinkedHashMap.
+ * 基于 LinkedHashMap 的“最近最少使用”缓存。
  *
  * @param <K> key
  * @param <V> value
@@ -31,10 +31,20 @@ public class LRUCache<K, V> extends LinkedHashMap<K, V> {
 
     private static final long serialVersionUID = -5167631809472116969L;
 
+    /**
+     * 默认加载因子
+     */
     private static final float DEFAULT_LOAD_FACTOR = 0.75f;
+    /** 默认最大容量 */
     private static final int DEFAULT_MAX_CAPACITY = 1000;
 
+    /**
+     * 锁
+     */
     private final Lock lock = new ReentrantLock();
+    /**
+     * 最大容量
+     */
     private volatile int maxCapacity;
 
     public LRUCache() {

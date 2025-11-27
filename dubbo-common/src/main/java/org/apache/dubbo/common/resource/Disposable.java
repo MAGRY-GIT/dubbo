@@ -17,7 +17,7 @@
 package org.apache.dubbo.common.resource;
 
 /**
- * An interface for destroying resources
+ * 销毁资源的接口
  */
 public interface Disposable {
 

@@ -34,32 +34,45 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 
 class NettyChannelTest {
+
     private Channel channel = Mockito.mock(Channel.class);
     private URL url = new ServiceConfigURL("dubbo", "127.0.0.1", 8080);
     private ChannelHandler channelHandler = Mockito.mock(ChannelHandler.class);
 
+    /**
+     * 测试NettyChannel的功能方法
+     * 该方法验证NettyChannel的获取、状态检查、移除等核心功能
+     *
+     * @throws Exception 当测试过程中发生异常时抛出
+     */
     @Test
     void test() throws Exception {
+        // 创建模拟的Channel对象并设置其活跃状态
         Channel channel = Mockito.mock(Channel.class);
         Mockito.when(channel.isActive()).thenReturn(true);
         URL url = URL.valueOf("test://127.0.0.1/test");
         ChannelHandler channelHandler = Mockito.mock(ChannelHandler.class);
         NettyChannel nettyChannel = NettyChannel.getOrAddChannel(channel, url, channelHandler);
 
+        // 验证获取的NettyChannel的处理器和活跃状态
         Assertions.assertEquals(nettyChannel.getChannelHandler(), channelHandler);
         Assertions.assertTrue(nettyChannel.isActive());
 
+        // 测试移除Channel后的状态变化
         NettyChannel.removeChannel(channel);
         Assertions.assertFalse(nettyChannel.isActive());
 
+        // 重新获取Channel并测试连接断开时的移除功能
         nettyChannel = NettyChannel.getOrAddChannel(channel, url, channelHandler);
         Mockito.when(channel.isActive()).thenReturn(false);
         NettyChannel.removeChannelIfDisconnected(channel);
         Assertions.assertFalse(nettyChannel.isActive());
 
+        // 验证连接状态检查功能
         nettyChannel = NettyChannel.getOrAddChannel(channel, url, channelHandler);
         Assertions.assertFalse(nettyChannel.isConnected());
 
+        // 测试手动标记活跃状态的功能
         nettyChannel = NettyChannel.getOrAddChannel(channel, url, channelHandler);
         nettyChannel.markActive(true);
         Assertions.assertTrue(nettyChannel.isActive());
@@ -93,21 +106,15 @@ class NettyChannelTest {
         Exception exception = Mockito.mock(Exception.class);
         Mockito.when(exception.getMessage()).thenReturn("future cause");
         Mockito.when(future.cause()).thenReturn(exception);
-        Assertions.assertThrows(
-                RemotingException.class,
-                () -> {
-                    finalNettyChannel.send("msg", true);
-                },
-                "future cause");
+        Assertions.assertThrows(RemotingException.class, () -> {
+            finalNettyChannel.send("msg", true);
+        }, "future cause");
 
         Mockito.when(future.await(1000)).thenReturn(false);
         Mockito.when(future.cause()).thenReturn(null);
-        Assertions.assertThrows(
-                RemotingException.class,
-                () -> {
-                    finalNettyChannel.send("msg", true);
-                },
-                "in timeout(1000ms) limit");
+        Assertions.assertThrows(RemotingException.class, () -> {
+            finalNettyChannel.send("msg", true);
+        }, "in timeout(1000ms) limit");
 
         ChannelPromise channelPromise = Mockito.mock(ChannelPromise.class);
         Mockito.when(channel.newPromise()).thenReturn(channelPromise);
@@ -115,8 +122,7 @@ class NettyChannelTest {
         Mockito.when(channelPromise.cause()).thenReturn(null);
         Mockito.when(channelPromise.addListener(Mockito.any())).thenReturn(channelPromise);
         finalNettyChannel.send("msg", true);
-        ArgumentCaptor<GenericFutureListener> listenerArgumentCaptor =
-                ArgumentCaptor.forClass(GenericFutureListener.class);
+        ArgumentCaptor<GenericFutureListener> listenerArgumentCaptor = ArgumentCaptor.forClass(GenericFutureListener.class);
         Mockito.verify(channelPromise, Mockito.times(1)).addListener(listenerArgumentCaptor.capture());
     }
 

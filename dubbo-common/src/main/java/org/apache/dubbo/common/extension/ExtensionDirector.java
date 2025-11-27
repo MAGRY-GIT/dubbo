@@ -25,7 +25,7 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * ExtensionDirector is a scoped extension loader manager.
+ *ExtensionDirector 是一个作用域扩展加载器管理器。
  *
  * <p></p>
  * <p>ExtensionDirector supports multiple levels, and the child can inherit the parent's extension instances. </p>

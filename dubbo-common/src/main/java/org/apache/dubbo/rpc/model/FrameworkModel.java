@@ -38,7 +38,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
 
 /**
- * Model of dubbo framework, it can be shared with multiple applications.
+ * dubbo 框架的模型，可以与多个应用程序共享
  */
 public class FrameworkModel extends ScopeModel {
 
@@ -171,10 +171,10 @@ public class FrameworkModel extends ScopeModel {
     }
 
     /**
-     * During destroying the default FrameworkModel, the FrameworkModel.defaultModel() or ApplicationModel.defaultModel()
-     * will return a broken model, maybe cause unpredictable problem.
-     * Recommendation: Avoid using the default model as much as possible.
-     * @return the global default FrameworkModel
+     *在销毁默认 FrameworkModel 期间，FrameworkModel.defaultModel（） 或 ApplicationModel.defaultModel（）
+     * 会返回一个损坏的模型，可能会导致不可预测的问题。
+     * 建议：尽量避免使用默认模型。
+     * @return全局默认 FrameworkModel
      */
     public static FrameworkModel defaultModel() {
         FrameworkModel instance = defaultInstance;

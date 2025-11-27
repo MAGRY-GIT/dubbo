@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Determine incoming bytes belong to the specific protocol.
+ * Determine incoming bytes belong to the specific protocol. 确定传入字节属于特定协议。
  */
 public interface ProtocolDetector {
 
@@ -78,8 +78,17 @@ public interface ProtocolDetector {
     }
 
     enum Flag {
+        /**
+         * 认可
+         */
         RECOGNIZED,
+        /**
+         * 未认可
+         */
         UNRECOGNIZED,
+        /**
+         * 需要更多数据
+         */
         NEED_MORE_DATA
     }
 

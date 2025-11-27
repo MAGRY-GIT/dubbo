@@ -21,30 +21,30 @@ import org.apache.dubbo.rpc.model.FrameworkModel;
 import org.apache.dubbo.rpc.model.ModuleModel;
 
 /**
- * Extension SPI Scope
+ * 扩展 SPI 范围
  * @see SPI
  * @see ExtensionDirector
  */
 public enum ExtensionScope {
 
     /**
-     * The extension instance is used within framework, shared with all applications and modules.
+     * 扩展实例在框架内使用，与所有应用程序和模块共享。
      *
-     * <p>Framework scope SPI extension can only obtain {@link FrameworkModel},
+     * <p>框架范围的 SPI 扩展只能获得 {@link FrameworkModel},
      * cannot get the {@link ApplicationModel} and {@link ModuleModel}.</p>
      *
      * <p></p>
-     * Consideration:
+     * 思考:
      * <ol>
-     * <li>Some SPI need share data between applications inside framework</li>
-     * <li>Stateless SPI is safe shared inside framework</li>
+     * <li>一些 SPI 需要在框架内的应用程序之间共享数据</li>
+     * <li>无状态 SPI 在框架内安全共享</li>
      * </ol>
      */
     FRAMEWORK,
 
     /**
-     * The extension instance is used within one application, shared with all modules of the application,
-     * and different applications create different extension instances.
+     * 扩展实例在一个应用程序中使用，与应用程序的所有模块共享，
+     * 不同的应用程序创建不同的扩展实例。
      *
      * <p>Application scope SPI extension can obtain {@link FrameworkModel} and {@link ApplicationModel},
      * cannot get the {@link ModuleModel}.</p>
@@ -59,7 +59,7 @@ public enum ExtensionScope {
     APPLICATION,
 
     /**
-     * The extension instance is used within one module, and different modules create different extension instances.
+     * 扩展实例在一个模块中使用，不同的模块创建不同的扩展实例。
      *
      * <p>Module scope SPI extension can obtain {@link FrameworkModel}, {@link ApplicationModel} and {@link ModuleModel}.</p>
      *
@@ -72,7 +72,7 @@ public enum ExtensionScope {
     MODULE,
 
     /**
-     * self-sufficient, creates an instance for per scope, for special SPI extension, like {@link ExtensionInjector}
+     * 自给自足，为每个作用域创建一个实例，用于特殊的 SPI 扩展，例如 {@link ExtensionInjector}
      */
     SELF
 }

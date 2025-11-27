@@ -16,17 +16,20 @@
  */
 package org.apache.dubbo.remoting.api.connection;
 
+/**
+ * 连接处理程序
+ */
 public interface ConnectionHandler {
 
     /**
-     * when server close connection gracefully.
+     * 当服务器正常关闭连接时。
      *
      * @param channel Channel
      */
     void onGoAway(Object channel);
 
     /**
-     * reconnect
+     * 重新链接
      *
      * @param channel Channel
      */

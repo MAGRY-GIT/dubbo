@@ -80,7 +80,7 @@ import static org.apache.dubbo.common.constants.RegistryConstants.CATEGORY_KEY;
 import static org.apache.dubbo.common.utils.StringUtils.isBlank;
 
 /**
- * URL - Uniform Resource Locator (Immutable, ThreadSafe)
+ *URL - 统一资源定位符（不可变，ThreadSafe）
  * <p>
  * url example:
  * <ul>
@@ -92,20 +92,20 @@ import static org.apache.dubbo.common.utils.StringUtils.isBlank;
  * <p>
  * Some strange example below:
  * <ul>
- * <li>192.168.1.3:20880<br>
- * for this case, url protocol = null, url host = 192.168.1.3, port = 20880, url path = null
+ * <li>192.168.1.3：20880<br>
+ * 对于本例，URL 协议 = null，URL 主机 = 192.168.1.3，端口 = 20880，URL 路径 = null
  * <li>file:///home/user1/router.js?type=script<br>
- * for this case, url protocol = file, url host = null, url path = home/user1/router.js
+ * 对于这种情况，url protocol = file， url host = null， url path = home/user1/router.js
  * <li>file://home/user1/router.js?type=script<br>
- * for this case, url protocol = file, url host = home, url path = user1/router.js
+ * 对于本例，URL 协议 = 文件，URL 主机 = 主页，URL 路径 = user1/router.js
  * <li>file:///D:/1/router.js?type=script<br>
- * for this case, url protocol = file, url host = null, url path = D:/1/router.js
- * <li>file:/D:/1/router.js?type=script<br>
- * same as above file:///D:/1/router.js?type=script
- * <li>/home/user1/router.js?type=script <br>
- * for this case, url protocol = null, url host = null, url path = home/user1/router.js
- * <li>home/user1/router.js?type=script <br>
- * for this case, url protocol = null, url host = home, url path = user1/router.js
+ * 对于本例，url protocol = file， url host = null， url path = D：/1/router.js
+ * <li>文件：/D：/1/router.js？type=script<br>
+ * 同上 file:///D:/1/router.js?type=script
+ * <li>/home/user1/router.js？type=脚本<br>
+ * 对于本例，URL 协议 = null，URL 主机 = null，URL 路径 = home/user1/router.js
+ * <li>home/user1/router.js？type=脚本<br>
+ * 对于本例，URL 协议 = null，URL 主机 = 主页，URL 路径 = user1/router.js
  * </ul>
  *
  * @see java.net.URL

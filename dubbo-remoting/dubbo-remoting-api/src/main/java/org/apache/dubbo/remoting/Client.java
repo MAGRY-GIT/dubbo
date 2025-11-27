@@ -19,7 +19,7 @@ package org.apache.dubbo.remoting;
 import org.apache.dubbo.common.Resetable;
 
 /**
- * Remoting Client. (API/SPI, Prototype, ThreadSafe)
+ * 远程客户端。（API/SPI、原型、线程安全）
  * <p>
  * <a href="http://en.wikipedia.org/wiki/Client%E2%80%93server_model">Client/Server</a>
  *

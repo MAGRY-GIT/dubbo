@@ -160,10 +160,10 @@ class PerformanceServerTest {
     @Test
     void testServer() throws Exception {
         // Read port from property
-        if (PerformanceUtils.getProperty("port", null) == null) {
-            logger.warn(CONFIG_UNDEFINED_ARGUMENT, "", "", "Please set -Dport=9911");
-            return;
-        }
+//        if (PerformanceUtils.getProperty("port", null) == null) {
+//            logger.warn(CONFIG_UNDEFINED_ARGUMENT, "", "", "Please set -Dport=9911");
+//            return;
+//        }
         final int port = PerformanceUtils.getIntProperty("port", 9911);
         final boolean telnet = PerformanceUtils.getBooleanProperty("telnet", true);
         if (telnet) statTelnetServer(port + 1);

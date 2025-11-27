@@ -81,10 +81,10 @@ class ChannelHandlerTest {
     @Test
     void testClient() throws Throwable {
         // read server info from property
-        if (PerformanceUtils.getProperty("server", null) == null) {
-            logger.warn(CONFIG_UNDEFINED_ARGUMENT, "", "", "Please set -Dserver=127.0.0.1:9911");
-            return;
-        }
+//        if (PerformanceUtils.getProperty("server", null) == null) {
+//            logger.warn(CONFIG_UNDEFINED_ARGUMENT, "", "", "Please set -Dserver=127.0.0.1:9911");
+//            return;
+//        }
         final String server = System.getProperty("server", "127.0.0.1:9911");
         final String transporter =
                 PerformanceUtils.getProperty(Constants.TRANSPORTER_KEY, Constants.DEFAULT_TRANSPORTER);

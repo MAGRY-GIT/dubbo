@@ -19,7 +19,7 @@ package org.apache.dubbo.remoting;
 import java.net.InetSocketAddress;
 
 /**
- * Channel. (API/SPI, Prototype, ThreadSafe)
+ * 通道. (API/SPI, Prototype, ThreadSafe)
  *
  * @see org.apache.dubbo.remoting.Client
  * @see RemotingServer#getChannels()
@@ -28,21 +28,21 @@ import java.net.InetSocketAddress;
 public interface Channel extends Endpoint {
 
     /**
-     * get remote address.
+     * 获取远程地址。
      *
      * @return remote address.
      */
     InetSocketAddress getRemoteAddress();
 
     /**
-     * is connected.
+     * 已连接。
      *
      * @return connected
      */
     boolean isConnected();
 
     /**
-     * has attribute.
+     *有属性。
      *
      * @param key key.
      * @return has or has not.
@@ -50,7 +50,7 @@ public interface Channel extends Endpoint {
     boolean hasAttribute(String key);
 
     /**
-     * get attribute.
+     * get 属性。
      *
      * @param key key.
      * @return value.

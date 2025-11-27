@@ -19,7 +19,7 @@ package org.apache.dubbo.common.context;
 import org.apache.dubbo.common.resource.Disposable;
 
 /**
- * The Lifecycle of Dubbo component
+ * Dubbo 组件的生命周期
  *
  * @since 2.7.5
  */

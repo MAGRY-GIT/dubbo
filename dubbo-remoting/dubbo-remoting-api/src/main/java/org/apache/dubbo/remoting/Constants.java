@@ -24,16 +24,25 @@ public interface Constants {
     String BUFFER_KEY = "buffer";
 
     /**
-     * default buffer size is 8k.
+     * 默认缓冲区大小为 8k。
      */
     int DEFAULT_BUFFER_SIZE = 8 * 1024;
 
+    /**
+     * 最大缓冲区大小为 16k。
+     */
     int MAX_BUFFER_SIZE = 16 * 1024;
 
+    /**
+     * 默认缓冲区大小为 1k。
+     */
     int MIN_BUFFER_SIZE = 1 * 1024;
 
     String IDLE_TIMEOUT_KEY = "idle.timeout";
 
+    /**
+     * 默认心跳间隔为 600s。
+     */
     int DEFAULT_IDLE_TIMEOUT = 600 * 1000;
     /**
      * max size of channel. default value is zero that means unlimited.
